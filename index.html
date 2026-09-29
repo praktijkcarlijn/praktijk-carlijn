@@ -3,161 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Praktijk Carlijn - Van Binnenuit. NEI therapie, gezinstherapie en persoonlijke begeleiding aan huis in Den Bosch.">
     <title>Praktijk Carlijn - Van Binnenuit | NEI Therapie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigatie -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">Praktijk Carlijn - Van Binnenuit</div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#over">Over mij</a></li>
-                <li><a href="#behandelingen">Behandelingen</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header class="header">
+        <div class="container nav-wrap">
+            <a href="#home" class="brand" aria-label="Praktijk Carlijn home">
+                <span class="brand-mark">P</span>
+                <span>Praktijk Carlijn</span>
+            </a>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Welkom bij Praktijk Carlijn</h1>
-            <h2>NEI Therapie • Gezinstherapie • Aan huis</h2>
-            <p>Hulp bij familieopstellingen, voedselintoleranties en fysieke klachten</p>
-            <a href="#contact" class="cta-button">Maak een afspraak</a>
-        </div>
-    </section>
+            <nav class="nav" aria-label="Hoofdnavigatie">
+                <a href="#over">Over mij</a>
+                <a href="#behandelingen">Behandelingen</a>
+                <a href="#werkwijze">Werkwijze</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </nav>
 
-    <!-- Over Section -->
-    <section id="over" class="about">
-        <div class="container">
-            <h2>Over mij</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Carlijn Pieterse</h3>
-                    <p>NEI Therapeute & Gezinstherapeut</p>
-                    <p>Ik bied NEI therapie aan vanuit mijn praktijk aan huis. Mijn doel is je te helpen bij het begrijpen en oplossen van onderliggende oorzaken van fysieke klachten, voedselintoleranties en relationele patronen door middel van familieopstellingen en NEI therapie.</p>
-                    <p>Met een empathische en professionele benadering werk ik samen met jou aan duurzame veranderingen en innerlijke balans.</p>
-                </div>
-            </div>
+            <a href="#contact" class="btn btn-primary nav-btn">Afspraak maken</a>
         </div>
-    </section>
+    </header>
 
-    <!-- Behandelingen Section -->
-    <section id="behandelingen" class="treatments">
-        <div class="container">
-            <h2>Behandelingen & Prijzen</h2>
-            <div class="treatments-grid">
-                <div class="treatment-card">
-                    <h3>NEI Therapie Sessie</h3>
-                    <p class="duration">Duur: 1 uur</p>
-                    <p class="price">€60,-</p>
-                    <ul>
-                        <li>Individuele sessie</li>
-                        <li>Gericht op fysieke klachten</li>
-                        <li>Voedselintoleranties</li>
-                        <li>Emotionele patronen</li>
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">NEI Therapie • Gezinstherapie • Aan huis</p>
+                    <h1>Heling begint bij het begrijpen van het verhaal achter de klachten.</h1>
+                    <p class="lead">Praktijk Carlijn helpt mensen die last hebben van fysieke klachten, voedselintoleranties, emotionele blokkades of familiedynamiek. In een veilige, warme sfeer werk ik samen met jou naar meer rust, verbinding en balans.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">Maak een afspraak</a>
+                        <a href="#behandelingen" class="btn btn-secondary">Bekijk behandelingen</a>
+                    </div>
+                    <ul class="hero-points">
+                        <li>Persoonlijke begeleiding</li>
+                        <li>Praktijk aan huis</li>
+                        <li>Veilig en empathisch</li>
                     </ul>
                 </div>
 
-                <div class="treatment-card">
-                    <h3>NEI Therapie Sessie</h3>
-                    <p class="duration">Duur: 1,5 uur</p>
-                    <p class="price">€90,-</p>
+                <div class="hero-card" aria-label="Informatie over Carlijn">
+                    <div class="card-badge">Carlijn Pieterse</div>
+                    <h2>NEI Therapeute &amp; Gezinstherapeut</h2>
+                    <p>Ik werk vanuit een holistische benadering en help je de onderliggende oorzaken te herkennen, zodat duurzame verandering echt mogelijk wordt.</p>
+                    <div class="mini-list">
+                        <div>
+                            <span>📍</span>
+                            <div>
+                                <strong>Locatie</strong>
+                                <p>Den Bosch</p>
+                            </div>
+                        </div>
+                        <div>
+                            <span>🕰️</span>
+                            <div>
+                                <strong>Beschikbaarheid</strong>
+                                <p>Op afspraak</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="over" class="section about">
+            <div class="container section-head">
+                <p class="eyebrow eyebrow-alt">Over mij</p>
+                <h2>Jij bent niet alleen je klachten.</h2>
+            </div>
+
+            <div class="container about-grid">
+                <div class="about-image">
+                    <div class="portrait-frame">
+                        <div class="portrait-content">
+                            <span>💛</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-copy">
+                    <p>Mijn naam is Carlijn Pieterse. Ik werk vanuit een warme, open en veilige sfeer waarin jij je gezien voelt. Ik ondersteun mensen die willen begrijpen waarom ze bepaalde patronen in hun lichaam, relaties of leven tegenkomen.</p>
+                    <p>Door middel van NEI therapie, familieopstellingen en empathische begeleiding help ik je de verbinding te leggen tussen je klachten en de onderliggende emoties, relaties en levenspatronen die daarbij horen.</p>
+                    <p>De focus ligt op duurzame groei, innerlijke rust en meer vertrouwen in je eigen leven.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="behandelingen" class="section treatments">
+            <div class="container section-head center">
+                <p class="eyebrow eyebrow-alt">Behandelingen</p>
+                <h2>Persoonlijke begeleiding die past bij jou</h2>
+            </div>
+
+            <div class="container cards-grid">
+                <article class="card">
+                    <div class="icon">🌿</div>
+                    <h3>NEI Therapie</h3>
+                    <p class="meta">1 uur • €60,-</p>
                     <ul>
-                        <li>Uitgebreidere sessie</li>
+                        <li>Fysieke klachten</li>
+                        <li>Voedselintoleranties</li>
+                        <li>Emotionele blokkades</li>
+                    </ul>
+                </article>
+
+                <article class="card highlight">
+                    <div class="icon">🫶</div>
+                    <h3>Uitgebreide sessie</h3>
+                    <p class="meta">1,5 uur • €90,-</p>
+                    <ul>
                         <li>Diepere verkenning</li>
                         <li>Familieopstellingen</li>
-                        <li>Meer tijd voor verwerking</li>
+                        <li>Meer ruimte voor verwerking</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="treatment-card">
+                <article class="card">
+                    <div class="icon">👨‍👩‍👧‍👦</div>
                     <h3>Gezinssessie</h3>
-                    <p class="duration">Naar afspraak</p>
-                    <p class="price">Op aanvraag</p>
+                    <p class="meta">Naar afspraak</p>
                     <ul>
-                        <li>Voor het hele gezin</li>
                         <li>Relatiedynamiek</li>
                         <li>Familiepatronen</li>
-                        <li>Aangepaste pricing</li>
+                        <li>Aangepaste begeleiding</li>
                     </ul>
+                </article>
+            </div>
+
+            <div class="container note-box">
+                <p>Alle sessies vinden plaats aan huis in <strong>Den Bosch</strong> (Kruiskampsingel 66, 5211 MK).</p>
+            </div>
+        </section>
+
+        <section id="werkwijze" class="section process">
+            <div class="container section-head center">
+                <p class="eyebrow eyebrow-alt">Werkwijze</p>
+                <h2>Zo werkt de begeleiding</h2>
+            </div>
+
+            <div class="container process-grid">
+                <div class="step">
+                    <span>01</span>
+                    <h3>Gratis kennismaking</h3>
+                    <p>We bespreken je situatie, zorgen en doelen. Je hoeft niets te laten zien; gewoon vertellen wat je voelt en waar je tegenaan loopt.</p>
+                </div>
+
+                <div class="step">
+                    <span>02</span>
+                    <h3>Diepgaand onderzoeken</h3>
+                    <p>Ik kijk met je mee naar de onderliggende oorzaken, patronen en signalen die in je leven of lichaam zichtbaar worden.</p>
+                </div>
+
+                <div class="step">
+                    <span>03</span>
+                    <h3>Verandering opbouwen</h3>
+                    <p>We werken stap voor stap aan meer inzicht, rust, verbinding en duurzame verbetering in jouw dagelijks leven.</p>
                 </div>
             </div>
-            <p class="note">*Alle sessies vinden plaats aan huis (Kruiskampsingel 66, Den Bosch)</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews" class="reviews">
-        <div class="container">
-            <h2>Wat mijn cliënten zeggen</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
+        <section id="reviews" class="section testimonials">
+            <div class="container section-head center">
+                <p class="eyebrow eyebrow-alt">Reviews</p>
+                <h2>Wat mensen mij vertellen</h2>
+            </div>
+
+            <div class="container cards-grid reviews-grid">
+                <article class="card review-card">
                     <div class="stars">★★★★★</div>
-                    <p>"Carlijn heeft me echt geholpen begrijpen waar mijn klachten vandaan kwamen. Na enkele sessies voel ik me veel beter."</p>
-                    <p class="reviewer">- Anonieme cliënt</p>
+                    <p>"Carlijn heeft me echt geholpen begrijpen waar mijn klachten vandaan kwamen. Na enkele sessies voel ik me veel beter en rustiger."</p>
+                    <strong>- Anonieme cliënt</strong>
+                </article>
+
+                <article class="card review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"De familieopstellingen waren heel inzichtelijk. Carlijn werkt op een warme, professionele en rustige manier."</p>
+                    <strong>- Anonieme cliënt</strong>
+                </article>
+
+                <article class="card review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Eindelijk iemand die dieper kijkt naar de oorzaken van mijn klachten. Ik ben erg dankbaar voor de hulp."</p>
+                    <strong>- Anonieme cliënt</strong>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container contact-wrap">
+                <div class="contact-copy">
+                    <p class="eyebrow eyebrow-alt">Contact</p>
+                    <h2>Kom in contact</h2>
+                    <p>Ben je benieuwd of de begeleiding bij jou past? Neem gerust contact op. Ik help je graag verder en we kijken samen naar de beste stap voor jou.</p>
                 </div>
 
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"De familieopstellingen waren heel inzichtelijk. Carlijn werkt op een zeer professionele en warme manier."</p>
-                    <p class="reviewer">- Anonieme cliënt</p>
-                </div>
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>Adres</strong>
+                            <p>Kruiskampsingel 66<br>5211 MK Den Bosch</p>
+                        </div>
+                    </div>
 
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Eindelijk iemand die dieper kijkt naar de oorzaken van mijn voedselintoleranties. Ik ben erg dankbaar."</p>
-                    <p class="reviewer">- Anonieme cliënt</p>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <div>
+                            <strong>Telefoon</strong>
+                            <p><a href="tel:0654681120">06 54 681 120</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        <div>
+                            <strong>E-mail</strong>
+                            <p><a href="mailto:praktijkcarlijn@hotmail.com">praktijkcarlijn@hotmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-cta">
+                        <a href="tel:0654681120" class="btn btn-primary">Bel nu</a>
+                        <a href="mailto:praktijkcarlijn@hotmail.com" class="btn btn-secondary">Mail mij</a>
+                    </div>
                 </div>
             </div>
-            <p class="note">Heb je zelf positieve ervaringen? Neem contact op om jouw verhaal te delen!</p>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact & Afspraken</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Praktijk Carlijn - Van Binnenuit</h3>
-                    
-                    <div class="contact-item">
-                        <strong>Adres:</strong>
-                        <p>Kruiskampsingel 66<br>5211 MK Den Bosch</p>
-                    </div>
-
-                    <div class="contact-item">
-                        <strong>Telefoon:</strong>
-                        <p><a href="tel:0654681120">06 54 681 120</a></p>
-                    </div>
-
-                    <div class="contact-item">
-                        <strong>E-mail:</strong>
-                        <p><a href="mailto:praktijkcarlijn@hotmail.com">praktijkcarlijn@hotmail.com</a></p>
-                    </div>
-
-                    <div class="contact-item">
-                        <strong>Praktijktype:</strong>
-                        <p>Aan huis (geen wachtkamer)</p>
-                    </div>
-
-                    <div class="cta-section">
-                        <p>Ben je geïnteresseerd in een sessie? Bel of mail me en we maken een afspraak op jouw gelegenste moment!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Praktijk Carlijn - Van Binnenuit. Alle rechten voorbehouden.</p>
+    <footer class="footer">
+        <div class="container footer-wrap">
+            <p>© 2024 Praktijk Carlijn - Van Binnenuit</p>
+            <p>Alle rechten voorbehouden</p>
         </div>
     </footer>
 </body>
