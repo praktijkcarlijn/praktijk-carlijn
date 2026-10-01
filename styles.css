@@ -186,6 +186,77 @@ p {
     transform: scaleX(1);
 }
 
+/* Dropdown Menu Styles */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-dropdown-toggle::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    transition: transform 0.2s ease;
+    margin-left: 4px;
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle::before {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(248, 244, 238, 0.95);
+    border: 1px solid rgba(113, 95, 79, 0.12);
+    border-radius: var(--radius-md);
+    min-width: 240px;
+    padding: 12px 0;
+    box-shadow: 0 16px 32px rgba(45, 26, 20, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    margin-top: 8px;
+    backdrop-filter: blur(12px);
+    z-index: 1001;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    color: var(--forest);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(101, 116, 92, 0.08);
+    color: var(--clay);
+}
+
+.dropdown-menu a::after {
+    display: none;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -412,12 +483,6 @@ p {
     margin-top: 18px;
 }
 
-.treatments {
-    background: rgba(255, 250, 244, 0.7);
-    border-top: 1px solid rgba(70, 57, 49, 0.05);
-    border-bottom: 1px solid rgba(70, 57, 49, 0.05);
-}
-
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -485,60 +550,30 @@ p {
     background: var(--clay);
 }
 
-.note-box {
-    margin-top: 32px;
-    padding: 24px 28px;
-    background: rgba(101, 116, 92, 0.06);
-    border: 1px solid rgba(101, 116, 92, 0.14);
-    border-radius: 16px;
-    text-align: center;
-}
-
-.note-box p {
-    margin: 0;
-    color: var(--forest);
-    font-weight: 500;
-}
-
-.process-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 30px;
-}
-
-.step {
-    background: rgba(255,255,255,0.45);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 30px 24px;
-    box-shadow: 0 20px 30px rgba(40, 39, 32, 0.03);
-}
-
-.step span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, rgba(184, 139, 106, 0.18), rgba(101, 116, 92, 0.08));
-    color: var(--forest);
-    font-weight: 800;
-    margin-bottom: 18px;
-}
-
-.step h3 {
-    margin-bottom: 12px;
-}
-
+/* Review Cards */
 .testimonials {
     background: rgba(239, 227, 211, 0.24);
+}
+
+.reviews-grid {
+    grid-template-columns: 1fr;
 }
 
 .review-card {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    padding: 28px;
+}
+
+.review-card p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.review-card p + p {
+    margin-top: 12px;
 }
 
 .stars {
@@ -550,6 +585,96 @@ p {
 .review-card strong {
     color: var(--forest);
     font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+/* Availability Section */
+.availability {
+    background: linear-gradient(135deg, rgba(239, 227, 211, 0.4), rgba(217, 189, 143, 0.2));
+    border-bottom: 1px solid rgba(70, 57, 49, 0.05);
+}
+
+.availability-card {
+    background: rgba(255, 250, 244, 0.9);
+    border: 1px solid rgba(126, 100, 74, 0.1);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 22px 42px rgba(45, 43, 40, 0.06);
+    padding: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(184, 139, 106, 0.12);
+    color: var(--forest);
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.availability-card h2 {
+    margin-bottom: 32px;
+}
+
+.availability-info {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.info-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px;
+    background: rgba(101, 116, 92, 0.04);
+    border-radius: var(--radius-md);
+}
+
+.info-item span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(184, 139, 106, 0.1);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.info-item strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--olive);
+}
+
+.info-item p {
+    color: var(--forest);
+    font-weight: 500;
+    margin: 0;
+}
+
+.availability-cta {
+    padding: 20px;
+    background: rgba(101, 116, 92, 0.08);
+    border-radius: var(--radius-md);
+}
+
+.availability-cta p {
+    margin: 0;
+    color: var(--forest);
+    font-weight: 500;
 }
 
 .contact-wrap {
@@ -652,6 +777,17 @@ p {
     .nav {
         display: none;
     }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        background: rgba(101, 116, 92, 0.04);
+        border: none;
+        box-shadow: none;
+        padding: 8px 0;
+        margin: 0;
+    }
 }
 
 @media (max-width: 620px) {
@@ -693,5 +829,13 @@ p {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .availability-card {
+        padding: 24px;
     }
 }
