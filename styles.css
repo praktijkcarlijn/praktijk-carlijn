@@ -227,6 +227,11 @@ p {
     border-top-color: var(--clay);
 }
 
+.nav-dropdown-toggle:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 4px;
+}
+
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -236,7 +241,6 @@ p {
     border-radius: var(--radius-md);
     min-width: 250px;
     padding: 8px 0;
-    margin-top: 8px;
     box-shadow: 0 10px 40px rgba(33, 26, 20, 0.12);
     opacity: 0;
     visibility: hidden;
@@ -263,9 +267,9 @@ p {
     padding-left: 24px;
 }
 
-/* Show dropdown on hover and focus-within */
+/* Show dropdown on hover or when opened by the toggle */
 .nav-dropdown:hover .dropdown-menu,
-.nav-dropdown:focus-within .dropdown-menu {
+.nav-dropdown.is-open .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -439,7 +443,7 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: center;
+    align-items: end;
 }
 
 .hero-copy h1 {
@@ -472,7 +476,7 @@ p {
 }
 
 .hero-card {
-    background: linear-gradient(135deg, rgba(217, 189, 143, 0.12), rgba(186, 168, 141, 0.08));
+    background: var(--panel);
     padding: 40px;
     border-radius: var(--radius-xl);
     border: 1px solid rgba(217, 189, 143, 0.2);
@@ -856,6 +860,10 @@ p {
     .contact-wrap {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .hero-grid {
+        align-items: start;
     }
 
     .process-grid {

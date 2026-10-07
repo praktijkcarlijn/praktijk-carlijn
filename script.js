@@ -1,32 +1,39 @@
-// Dropdown menu functionality for mobile and keyboard navigation
 document.addEventListener('DOMContentLoaded', function() {
-    const navDropdowns = document.querySelectorAll('.nav-dropdown');
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
 
-    navDropdowns.forEach(dropdown => {
+    function closeDropdown(dropdown) {
+        dropdown.classList.remove('is-open');
+        dropdown.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+    }
+
+    dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.nav-dropdown-toggle');
-        const menu = dropdown.querySelector('.dropdown-menu');
 
-        // Prevent default link behavior on the toggle
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
+        dropdown.addEventListener('mouseenter', function() {
+            toggle.setAttribute('aria-expanded', 'true');
         });
 
-        // Close menu when a link is clicked
-        const links = menu.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function() {
-                menu.style.opacity = '0';
-            });
+        dropdown.addEventListener('mouseleave', function() {
+            closeDropdown(dropdown);
+        });
+
+        toggle.addEventListener('click', function() {
+            const isOpen = dropdown.classList.toggle('is-open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
         });
     });
 
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav-dropdown')) {
-            const menus = document.querySelectorAll('.dropdown-menu');
-            menus.forEach(menu => {
-                menu.style.opacity = '0';
-            });
+    document.addEventListener('click', function(event) {
+        dropdowns.forEach(dropdown => {
+            if (!dropdown.contains(event.target)) {
+                closeDropdown(dropdown);
+            }
+        });
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            dropdowns.forEach(closeDropdown);
         }
     });
 });
