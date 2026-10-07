@@ -379,12 +379,12 @@ h3 {
     display: flex;
     justify-content: center;
     align-self: start;
-    margin-top: 80px;
+    margin-top: 140px;
 }
 
 .hero-photo {
     width: 100%;
-    max-width: 340px;
+    max-width: 204px;
     height: auto;
     aspect-ratio: 1 / 1;
     border-radius: var(--radius-lg);
