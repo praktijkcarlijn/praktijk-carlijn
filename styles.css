@@ -236,7 +236,7 @@ p {
     border-radius: var(--radius-md);
     min-width: 250px;
     padding: 8px 0;
-    margin-top: 8px;
+    margin-top: 0;
     box-shadow: 0 10px 40px rgba(33, 26, 20, 0.12);
     opacity: 0;
     visibility: hidden;
@@ -265,7 +265,8 @@ p {
 
 /* Show dropdown on hover and focus-within */
 .nav-dropdown:hover .dropdown-menu,
-.nav-dropdown:focus-within .dropdown-menu {
+.nav-dropdown:focus-within .dropdown-menu,
+.nav-dropdown.open .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
