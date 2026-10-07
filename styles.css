@@ -234,8 +234,7 @@ h3 {
     z-index: 999;
 }
 
-/* Show dropdown when aria-expanded is true */
-.nav-dropdown-toggle[aria-expanded="true"] ~ .dropdown-menu {
+.dropdown-menu.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
