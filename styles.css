@@ -231,10 +231,6 @@ p {
     border-top-color: var(--clay);
 }
 
-.nav-dropdown-toggle[aria-expanded="true"]::after {
-    transform: rotate(180deg);
-}
-
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -254,14 +250,6 @@ p {
     z-index: 999;
 }
 
-/* Show dropdown when .open class is present */
-.nav-dropdown.open .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
 .dropdown-menu a {
     display: block;
     padding: 12px 20px;
@@ -277,6 +265,15 @@ p {
     border-left-color: var(--clay);
     color: var(--clay);
     padding-left: 24px;
+}
+
+/* Show dropdown on hover and focus-within */
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .btn {
