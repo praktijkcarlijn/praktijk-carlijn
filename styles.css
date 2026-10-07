@@ -479,7 +479,7 @@ h3 {
 
 .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
 }
 
@@ -722,6 +722,12 @@ h3 {
 /* ============================================
    RESPONSIVE
    ============================================ */
+
+@media (max-width: 1024px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 @media (max-width: 768px) {
     .nav-wrap {
