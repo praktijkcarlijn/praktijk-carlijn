@@ -58,6 +58,35 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Phone menu button (☰)
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('mainNav');
+
+    function setMenu(open) {
+        nav.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+    }
+
+    if (navToggle && nav) {
+        navToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            setMenu(!nav.classList.contains('open'));
+        });
+
+        // Close after choosing a link (e.g. jumping to #contact on the same page)
+        nav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () { setMenu(false); });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.header')) setMenu(false);
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') setMenu(false);
+        });
+    }
+
     // Close when clicking outside or pressing Escape
     document.addEventListener('click', function (e) {
         if (!e.target.closest('.nav-dropdown')) closeAll();
