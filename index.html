@@ -20,9 +20,9 @@
 
             <nav class="nav" aria-label="Hoofdnavigatie">
                 <a href="#over">Over mij</a>
-                <div class="nav-dropdown">
-                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Waarvoor je bij mij terecht kan</button>
-                    <div class="dropdown-menu">
+                <div class="nav-dropdown" id="dropdown">
+                    <button class="nav-dropdown-toggle" onclick="toggleDropdown()">Waarvoor je bij mij terecht kan</button>
+                    <div class="dropdown-menu" id="dropdownMenu">
                         <a href="#mentale">Mentale &amp; emotionele klachten</a>
                         <a href="#lichamelijke">Lichamelijke klachten</a>
                         <a href="#familie">Familie &amp; patronen</a>
@@ -131,34 +131,25 @@
     </footer>
 
     <script>
-        // Dropdown menu functionality
-        const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-        const navDropdown = document.querySelector('.nav-dropdown');
-
-        if (dropdownToggle && dropdownMenu && navDropdown) {
-            // Toggle dropdown on button click
-            dropdownToggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
-                dropdownToggle.setAttribute('aria-expanded', !isExpanded);
-            });
-
-            // Close dropdown when clicking on a link
-            const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
-            dropdownLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    dropdownToggle.setAttribute('aria-expanded', 'false');
-                });
-            });
-
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!navDropdown.contains(e.target)) {
-                    dropdownToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
+        function toggleDropdown() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show');
         }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('dropdown');
+            if (!dropdown.contains(e.target)) {
+                document.getElementById('dropdownMenu').classList.remove('show');
+            }
+        });
+
+        // Close dropdown when clicking a link
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('dropdownMenu').classList.remove('show');
+            });
+        });
     </script>
 </body>
 </html>
