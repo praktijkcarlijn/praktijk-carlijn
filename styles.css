@@ -360,11 +360,9 @@ h3 {
 }
 
 .hero-card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .hero-photo {
@@ -372,6 +370,7 @@ h3 {
     height: auto;
     border-radius: var(--radius-lg);
     object-fit: cover;
+    box-shadow: 0 12px 32px var(--shadow);
 }
 
 .card-badge {
