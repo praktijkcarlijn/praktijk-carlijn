@@ -477,6 +477,10 @@ h3 {
     background: var(--panel);
 }
 
+.reviews-wrapper {
+    width: 100%;
+}
+
 .reviews-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -489,6 +493,9 @@ h3 {
     border-radius: var(--radius-lg);
     padding: 32px;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: auto;
 }
 
 .card:hover {
@@ -502,21 +509,24 @@ h3 {
     gap: 16px;
 }
 
-.stars {
-    font-size: 1.2rem;
-    color: var(--gold);
-}
-
 .review-card p {
     font-size: 0.95rem;
     color: var(--text);
     line-height: 1.7;
+    flex-grow: 1;
+}
+
+.stars {
+    font-size: 1.2rem;
+    color: var(--gold);
+    flex-shrink: 0;
 }
 
 .review-signature {
     font-weight: 600;
     color: var(--clay);
-    margin-top: 8px !important;
+    margin-top: auto;
+    padding-top: 8px;
 }
 
 /* ============================================
