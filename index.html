@@ -129,5 +129,61 @@
             <p>Alle rechten voorbehouden</p>
         </div>
     </footer>
+
+    <script>
+        // Dropdown toggle functionality
+        document.querySelectorAll('.nav-dropdown-toggle').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const dropdown = button.closest('.nav-dropdown');
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                
+                // Close all other dropdowns
+                document.querySelectorAll('.nav-dropdown-toggle').forEach(b => {
+                    b.setAttribute('aria-expanded', 'false');
+                });
+                
+                // Toggle current dropdown
+                button.setAttribute('aria-expanded', !isExpanded);
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-dropdown')) {
+                document.querySelectorAll('.nav-dropdown-toggle').forEach(button => {
+                    button.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+
+        // Close dropdown when clicking a link
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelectorAll('.nav-dropdown-toggle').forEach(button => {
+                    button.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+
+        // Keyboard navigation
+        document.querySelectorAll('.dropdown-menu a').forEach((link, index, links) => {
+            link.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowDown' && index < links.length - 1) {
+                    e.preventDefault();
+                    links[index + 1].focus();
+                } else if (e.key === 'ArrowUp' && index > 0) {
+                    e.preventDefault();
+                    links[index - 1].focus();
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    link.closest('.nav-dropdown').querySelector('.nav-dropdown-toggle').focus();
+                    document.querySelectorAll('.nav-dropdown-toggle').forEach(button => {
+                        button.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
