@@ -13,28 +13,28 @@
 <body>
     <header class="header">
         <div class="container nav-wrap">
-            <a href="#home" class="brand" aria-label="Praktijk Carlijn home">
+            <a href="index.html" class="brand" aria-label="Praktijk Carlijn home">
                 <span class="brand-mark">C</span>
                 <span>Praktijk Carlijn</span>
             </a>
 
             <nav class="nav" aria-label="Hoofdnavigatie">
-                <a href="#over">Over mij</a>
-                <div class="nav-dropdown">
-                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Waarvoor je bij mij terecht kan</button>
-                    <div class="dropdown-menu">
-                        <a href="#mentale">Mentale &amp; emotionele klachten</a>
-                        <a href="#lichamelijke">Lichamelijke klachten</a>
-                        <a href="#familie">Familie &amp; patronen</a>
-                        <a href="#kinderwens">Kinderwens</a>
-                        <a href="#ontwikkeling">Persoonlijke ontwikkeling</a>
+                <a href="index.html#over">Over mij</a>
+                <div class="nav-dropdown" id="dropdown">
+                    <button class="nav-dropdown-toggle" onclick="toggleDropdown()">Waarvoor je bij mij terecht kan</button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="mentale-emotionele.html">Mentale &amp; emotionele klachten</a>
+                        <a href="lichamelijke.html">Lichamelijke klachten</a>
+                        <a href="familie-patronen.html">Familie &amp; patronen</a>
+                        <a href="kinderwens.html">Kinderwens</a>
+                        <a href="persoonlijke-ontwikkeling.html">Persoonlijke ontwikkeling</a>
                     </div>
                 </div>
-                <a href="#reviews">Reviews</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html#reviews">Reviews</a>
+                <a href="index.html#contact">Contact</a>
             </nav>
 
-            <a href="#contact" class="btn btn-primary nav-btn">Afspraak aanvragen</a>
+            <a href="index.html#contact" class="btn btn-primary nav-btn">Afspraak aanvragen</a>
         </div>
     </header>
 
@@ -44,7 +44,7 @@
                 <div class="hero-copy">
                     <p class="eyebrow">NEI-THERAPIE • PERSOONLIJKE BEGELEIDING • VAN BINNENUIT</p>
                     <h1>Ontdek wat er écht onder je klachten speelt.</h1>
-                    <p class="lead">Bij Praktijk Carlijn kijken we met NEI-therapie naar de onderliggende oorzaken van klachten, emoties en terugkerende patronen. Samen maken we zichtbaar wat er i[...]</p>
+                    <p class="lead">Bij Praktijk Carlijn kijken we met NEI-therapie naar de onderliggende oorzaken van klachten, emoties en terugkerende patronen. Samen maken we zichtbaar wat er in jou aan de hand is, zodat je weer meer rust, helderheid en verbinding voelt.</p>
                     <div class="hero-actions">
                         <a href="#contact" class="btn btn-secondary">Neem contact op</a>
                     </div>
@@ -131,57 +131,23 @@
     </footer>
 
     <script>
-        // Dropdown toggle functionality
-        document.querySelectorAll('.nav-dropdown-toggle').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const dropdown = button.closest('.nav-dropdown');
-                const isExpanded = button.getAttribute('aria-expanded') === 'true';
-                
-                // Close all other dropdowns
-                document.querySelectorAll('.nav-dropdown-toggle').forEach(b => {
-                    b.setAttribute('aria-expanded', 'false');
-                });
-                
-                // Toggle current dropdown
-                button.setAttribute('aria-expanded', !isExpanded);
-            });
-        });
+        function toggleDropdown() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show');
+        }
 
         // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-dropdown')) {
-                document.querySelectorAll('.nav-dropdown-toggle').forEach(button => {
-                    button.setAttribute('aria-expanded', 'false');
-                });
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('dropdown');
+            if (!dropdown.contains(e.target)) {
+                document.getElementById('dropdownMenu').classList.remove('show');
             }
         });
 
         // Close dropdown when clicking a link
         document.querySelectorAll('.dropdown-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelectorAll('.nav-dropdown-toggle').forEach(button => {
-                    button.setAttribute('aria-expanded', 'false');
-                });
-            });
-        });
-
-        // Keyboard navigation
-        document.querySelectorAll('.dropdown-menu a').forEach((link, index, links) => {
-            link.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowDown' && index < links.length - 1) {
-                    e.preventDefault();
-                    links[index + 1].focus();
-                } else if (e.key === 'ArrowUp' && index > 0) {
-                    e.preventDefault();
-                    links[index - 1].focus();
-                } else if (e.key === 'Escape') {
-                    e.preventDefault();
-                    link.closest('.nav-dropdown').querySelector('.nav-dropdown-toggle').focus();
-                    document.querySelectorAll('.nav-dropdown-toggle').forEach(button => {
-                        button.setAttribute('aria-expanded', 'false');
-                    });
-                }
+            link.addEventListener('click', function() {
+                document.getElementById('dropdownMenu').classList.remove('show');
             });
         });
     </script>
