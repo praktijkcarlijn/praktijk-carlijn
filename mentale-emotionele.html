@@ -19,9 +19,9 @@
             </a>
             <nav class="nav" aria-label="Hoofdnavigatie">
                 <a href="index.html#over">Over mij</a>
-                <div class="nav-dropdown">
-                    <a href="#" class="nav-dropdown-toggle">Waarvoor je bij mij terecht kan</a>
-                    <div class="dropdown-menu">
+                <div class="nav-dropdown" id="dropdown">
+                    <button class="nav-dropdown-toggle" onclick="toggleDropdown()">Waarvoor je bij mij terecht kan</button>
+                    <div class="dropdown-menu" id="dropdownMenu">
                         <a href="mentale-emotionele.html">Mentale & emotionele klachten</a>
                         <a href="lichamelijke.html">Lichamelijke klachten</a>
                         <a href="familie-patronen.html">Familie & patronen</a>
@@ -126,6 +126,26 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function toggleDropdown() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('dropdown');
+            if (!dropdown.contains(e.target)) {
+                document.getElementById('dropdownMenu').classList.remove('show');
+            }
+        });
+
+        // Close dropdown when clicking a link
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('dropdownMenu').classList.remove('show');
+            });
+        });
+    </script>
 </body>
 </html>
