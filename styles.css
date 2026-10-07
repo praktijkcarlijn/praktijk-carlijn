@@ -740,6 +740,30 @@ h3 {
     margin: 0;
 }
 
+.rates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 800px;
+    margin: 0 auto 64px;
+}
+
+.rate-card {
+    text-align: center;
+}
+
+.rate-card h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 12px;
+}
+
+.rate-card .rate-price {
+    color: var(--clay);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
 /* Long-form text on the sub pages */
 .intro-text {
     max-width: 760px;
