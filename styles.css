@@ -653,6 +653,10 @@ h3 {
     padding: 80px 0;
 }
 
+.content-page > .container > .topics-list {
+    margin-top: 24px;
+}
+
 .topics-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
