@@ -1,27 +1,28 @@
-// Simple dropdown menu - just handle link clicks
+// Dropdown functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
-
-    dropdownToggles.forEach(toggle => {
-        const dropdown = toggle.closest('.nav-dropdown');
-        const menu = dropdown.querySelector('.dropdown-menu');
-        const links = menu.querySelectorAll('a');
-
-        // Close dropdown when a link is clicked
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Allow the link to navigate naturally
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        });
+    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    
+    if (!dropdownToggle || !dropdownMenu) return;
+    
+    // Toggle dropdown on button click
+    dropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('show');
     });
-
-    // Close all dropdowns when clicking outside
+    
+    // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.nav-dropdown')) {
-            document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
-                toggle.setAttribute('aria-expanded', 'false');
-            });
+            dropdownMenu.classList.remove('show');
         }
+    });
+    
+    // Close dropdown when clicking a link
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            dropdownMenu.classList.remove('show');
+        });
     });
 });
