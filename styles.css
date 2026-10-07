@@ -191,6 +191,8 @@ p {
     position: relative;
     display: flex;
     align-items: center;
+    /* extra hoogte zodat de muis nooit "buiten" het menu valt tussen knop en lijst */
+    padding: 20px 0;
 }
 
 .nav-dropdown-toggle {
@@ -206,7 +208,6 @@ p {
     align-items: center;
     gap: 8px;
     transition: color 0.2s ease;
-    position: relative;
 }
 
 .nav-dropdown-toggle::after {
@@ -217,36 +218,29 @@ p {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 6px solid currentColor;
-    transition: transform 0.2s ease;
 }
 
 .nav-dropdown-toggle:hover,
-.nav-dropdown-toggle:focus {
+.nav-dropdown-toggle:focus-visible {
     color: var(--clay);
     outline: none;
 }
 
-.nav-dropdown-toggle:hover::after,
-.nav-dropdown-toggle:focus::after {
-    border-top-color: var(--clay);
-}
-
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: 100%;          /* direct onder het (padded) dropdown-vak: geen gat meer */
     left: 0;
     background: rgba(248, 244, 238, 0.98);
     border: 1px solid rgba(113, 95, 79, 0.15);
     border-radius: var(--radius-md);
-    min-width: 250px;
+    min-width: 270px;
     padding: 8px 0;
-    margin-top: 8px;
     box-shadow: 0 10px 40px rgba(33, 26, 20, 0.12);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     pointer-events: none;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
     z-index: 999;
 }
 
@@ -256,24 +250,28 @@ p {
     color: var(--forest);
     font-size: 0.95rem;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
     border-left: 3px solid transparent;
 }
 
-.dropdown-menu a:hover {
-    background: rgba(217, 189, 143, 0.1);
-    border-left-color: var(--clay);
-    color: var(--clay);
-    padding-left: 24px;
+.dropdown-menu a::after {
+    display: none;
 }
 
-/* Show dropdown on hover and focus-within */
+.dropdown-menu a:hover {
+    background: rgba(217, 189, 143, 0.15);
+    border-left-color: var(--clay);
+    color: var(--clay);
+}
+
+/* Show dropdown on hover and keyboard focus */
 .nav-dropdown:hover .dropdown-menu,
 .nav-dropdown:focus-within .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
 }
 
 .btn {
