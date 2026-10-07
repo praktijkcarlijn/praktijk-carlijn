@@ -1,4 +1,4 @@
-// Dropdown menu - works on every page, for both <button> and <a> toggles
+// Dropdown menu - works on every page with click AND hover
 document.addEventListener('DOMContentLoaded', function () {
     const dropdowns = document.querySelectorAll('.nav-dropdown');
 
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         toggle.setAttribute('aria-haspopup', 'true');
         toggle.setAttribute('aria-expanded', 'false');
 
+        // Click to toggle
         toggle.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
@@ -28,6 +29,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 menu.classList.add('show');
                 toggle.setAttribute('aria-expanded', 'true');
             }
+        });
+
+        // Hover to open
+        dropdown.addEventListener('mouseenter', function () {
+            menu.classList.add('show');
+            toggle.setAttribute('aria-expanded', 'true');
+        });
+
+        // Hover to close
+        dropdown.addEventListener('mouseleave', function () {
+            menu.classList.remove('show');
+            toggle.setAttribute('aria-expanded', 'false');
         });
 
         // Links inside the menu navigate normally
