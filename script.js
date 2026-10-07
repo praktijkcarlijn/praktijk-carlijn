@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Only use hover on devices with a real mouse; on phones a tap would open and close at once
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
     dropdowns.forEach(function (dropdown) {
         const toggle = dropdown.querySelector('.nav-dropdown-toggle');
         const menu = dropdown.querySelector('.dropdown-menu');
@@ -23,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
         toggle.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
-            const isOpen = menu.classList.contains('show');
+            // With a mouse the menu is already open from hovering, so a click keeps it open
+            const isOpen = menu.classList.contains('show') && !canHover;
             closeAll();
             if (!isOpen) {
                 menu.classList.add('show');
@@ -31,17 +35,19 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Hover to open
-        dropdown.addEventListener('mouseenter', function () {
-            menu.classList.add('show');
-            toggle.setAttribute('aria-expanded', 'true');
-        });
+        if (canHover) {
+            // Hover to open
+            dropdown.addEventListener('mouseenter', function () {
+                menu.classList.add('show');
+                toggle.setAttribute('aria-expanded', 'true');
+            });
 
-        // Hover to close
-        dropdown.addEventListener('mouseleave', function () {
-            menu.classList.remove('show');
-            toggle.setAttribute('aria-expanded', 'false');
-        });
+            // Hover to close
+            dropdown.addEventListener('mouseleave', function () {
+                menu.classList.remove('show');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        }
 
         // Links inside the menu navigate normally
         menu.querySelectorAll('a').forEach(function (link) {
