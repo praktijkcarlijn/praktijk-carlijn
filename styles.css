@@ -219,6 +219,11 @@ p {
     transition: transform 0.2s ease;
 }
 
+.nav-dropdown-toggle:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 4px;
+}
+
 .nav-dropdown-toggle:hover {
     color: var(--clay);
 }
@@ -246,6 +251,15 @@ p {
     z-index: 999;
 }
 
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    height: 8px;
+}
+
 .dropdown-menu a {
     display: block;
     padding: 12px 20px;
@@ -265,7 +279,8 @@ p {
 
 /* Show dropdown on hover and focus-within */
 .nav-dropdown:hover .dropdown-menu,
-.nav-dropdown:focus-within .dropdown-menu {
+.nav-dropdown:focus-within .dropdown-menu,
+.nav-dropdown.is-open .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
