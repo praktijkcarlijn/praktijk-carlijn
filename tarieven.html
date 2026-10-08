@@ -10,29 +10,121 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .tarieven-table {
-            width: 100%;
-            max-width: 500px;
-            border-collapse: collapse;
-            margin: 0.5rem 0 0 0;
+        /* Page-specific rules: shared styles and other pages stay unchanged. */
+        .tarieven-page .hero.hero-small {
+            padding: 56px 0 24px;
         }
-        .tarieven-table td {
-            padding: 12px 20px;
-            border-bottom: 1px solid #e0d5c7;
+        .tarieven-page .hero-copy {
+            max-width: 760px;
         }
-        .tarieven-table td:first-child {
+        .tarieven-page .hero-copy .lead {
+            margin-bottom: 0;
+        }
+        .tarieven-page .section.tarieven {
+            padding: 0 0 64px;
+        }
+        .tarieven-page .tarieven-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            max-width: 760px;
+        }
+        .tarieven-page .tarief-card {
+            min-width: 0;
+            padding: 28px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+        }
+        .tarieven-page .tarief-card h2 {
+            margin: 0 0 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
             font-weight: 600;
+            letter-spacing: 0.1em;
+            line-height: 1.5;
+            color: var(--olive);
         }
-        .tarieven-table td:last-child {
-            text-align: right;
+        .tarieven-page .tarief-price {
+            margin-bottom: 12px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 5vw, 3.75rem);
             font-weight: 600;
+            line-height: 1.1;
+            color: var(--forest);
         }
-        .tarieven-table tr:last-child td {
-            border-bottom: none;
+        .tarieven-page .tarief-card p,
+        .tarieven-page .tarief-info p {
+            color: var(--muted);
+        }
+        .tarieven-page .tarief-info {
+            max-width: 760px;
+            margin-top: 32px;
+        }
+        .tarieven-page .tarief-info h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            margin-bottom: 12px;
+        }
+        .tarieven-page .tarief-cta {
+            margin-top: 24px;
+        }
+        .tarieven-page .tarief-cta p {
+            margin-bottom: 16px;
+        }
+        .tarieven-page .tarief-cta .btn {
+            max-width: 100%;
+            min-height: 44px;
+            white-space: normal;
+            text-align: center;
+            background: var(--forest);
+            color: var(--panel);
+        }
+        .tarieven-page .tarief-cta .btn:hover {
+            background: var(--text);
+            transform: none;
+            box-shadow: none;
+        }
+        .tarieven-page .tarief-cta .btn:focus-visible {
+            outline: 2px solid var(--forest);
+            outline-offset: 4px;
+        }
+        .tarieven-page .contact-card,
+        .tarieven-page .contact-item > div {
+            min-width: 0;
+        }
+        .tarieven-page .contact-item a {
+            overflow-wrap: anywhere;
+        }
+        @media (max-width: 600px) {
+            .tarieven-page .hero.hero-small {
+                padding: 32px 0 20px;
+            }
+            .tarieven-page .section.tarieven {
+                padding: 0 0 40px;
+            }
+            .tarieven-page .tarieven-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 16px;
+            }
+            .tarieven-page .tarief-card {
+                padding: 24px;
+            }
+            .tarieven-page .tarief-info {
+                margin-top: 28px;
+            }
+            .tarieven-page .tarief-cta .btn {
+                width: 100%;
+            }
+            .tarieven-page .contact-card {
+                padding: 24px;
+            }
+            .tarieven-page .contact-cta {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
-<body>
+<body class="tarieven-page">
     <header class="header">
         <div class="container nav-wrap">
             <a href="index.html" class="brand" aria-label="Praktijk Carlijn home">
@@ -50,33 +142,37 @@
     </header>
 
     <main>
-        <section class="hero hero-small">
+        <section class="hero hero-small" aria-labelledby="tarieven-title">
             <div class="container">
                 <div class="hero-copy">
                     <p class="eyebrow">TARIEVEN</p>
-                    <h1>Tarieven</h1>
-                    <p class="lead">De duur van een sessie hangt af van hoelang we nodig hebben en wat er gezien mag worden. Vaak is 1,5 uur nodig voor diepere thema's. Voor kortere vragen kan ook 1 uur ingezet worden.</p>
+                    <h1 id="tarieven-title">Tarieven</h1>
+                    <p class="lead">De tijd die we nodig hebben hangt af van jouw vraag. Voor een verdiepend gesprek is 1,5 uur meestal prettig. Voor een kortere, gerichte vraag kan 1 uur voldoende zijn.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section tarieven">
+        <section class="section tarieven" aria-label="Sessieduur en tarieven">
             <div class="container">
-                <table class="tarieven-table">
-                    <tr>
-                        <td>1 uur</td>
-                        <td>€60,-</td>
-                    </tr>
-                    <tr>
-                        <td>1,5 uur</td>
-                        <td>€90,-</td>
-                    </tr>
-                </table>
+                <div class="tarieven-grid">
+                    <article class="tarief-card" aria-labelledby="tarief-een-uur">
+                        <h2 id="tarief-een-uur">1 UUR</h2>
+                        <div class="tarief-price">€60</div>
+                        <p>Voor een kortere of gerichte vraag</p>
+                    </article>
+                    <article class="tarief-card" aria-labelledby="tarief-anderhalf-uur">
+                        <h2 id="tarief-anderhalf-uur">1,5 UUR</h2>
+                        <div class="tarief-price">€90</div>
+                        <p>Voor meer ruimte en verdieping</p>
+                    </article>
+                </div>
 
-                <div class="tarief-info" style="margin-top: 0.8rem;">
-                    <div class="info-box">
-                        <h3>Hoe bepalen we de duur?</h3>
-                        <p>Tijdens ons eerste contact bespreken we je vraag en situatie. Samen bepalen we wat je nodig hebt en hoelang de sessie kan duren.</p>
+                <div class="tarief-info">
+                    <h2>Welke duur past bij jou?</h2>
+                    <p>Tijdens het eerste contact bespreken we waar je tegenaan loopt. Daarna kijken we samen hoeveel tijd er nodig is. Je hoeft dus vooraf niet precies te weten welke sessie bij je past.</p>
+                    <div class="tarief-cta">
+                        <p>Weet je niet welke duur bij je past? Geen probleem. We kijken samen wat passend is.</p>
+                        <a href="index.html#contact" class="btn btn-primary">Afspraak aanvragen</a>
                     </div>
                 </div>
             </div>
