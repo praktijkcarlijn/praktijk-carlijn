@@ -9,6 +9,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .tarieven-table {
+            width: 100%;
+            max-width: 500px;
+            border-collapse: collapse;
+            margin: 1rem 0 0 0;
+        }
+        .tarieven-table td {
+            padding: 12px 20px;
+            border-bottom: 1px solid #e0d5c7;
+        }
+        .tarieven-table td:first-child {
+            font-weight: 600;
+        }
+        .tarieven-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+        }
+        .tarieven-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -40,23 +62,18 @@
 
         <section class="section tarieven">
             <div class="container">
-                <div class="tarieven-grid">
-                    <article class="tarief-card">
-                        <div class="tarief-header">
-                            <h2>1 uur</h2>
-                            <div class="tarief-price">€60,-</div>
-                        </div>
-                    </article>
+                <table class="tarieven-table">
+                    <tr>
+                        <td>1 uur</td>
+                        <td>€60,-</td>
+                    </tr>
+                    <tr>
+                        <td>1,5 uur</td>
+                        <td>€90,-</td>
+                    </tr>
+                </table>
 
-                    <article class="tarief-card highlight">
-                        <div class="tarief-header">
-                            <h2>1,5 uur</h2>
-                            <div class="tarief-price">€90,-</div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="tarief-info" style="margin-top: 2rem;">
+                <div class="tarief-info" style="margin-top: 1.5rem;">
                     <div class="info-box">
                         <h3>Hoe bepalen we de duur?</h3>
                         <p>Tijdens ons eerste contact bespreken we je vraag en situatie. Samen bepalen we wat je nodig hebt en hoelang de sessie kan duren.</p>
