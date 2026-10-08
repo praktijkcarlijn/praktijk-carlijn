@@ -65,6 +65,20 @@
             font-size: clamp(1.8rem, 3vw, 2.4rem);
             margin-bottom: 12px;
         }
+        .tarieven-page .traject-info {
+            max-width: 760px;
+            margin-top: 32px;
+            padding-top: 28px;
+            border-top: 1px solid var(--line);
+            overflow-wrap: break-word;
+        }
+        .tarieven-page .traject-info p + p {
+            margin-top: 16px;
+        }
+        .tarieven-page .traject-info p.traject-geruststelling {
+            color: var(--forest);
+            font-weight: 500;
+        }
         .tarieven-page .tarief-cta {
             margin-top: 24px;
         }
@@ -111,6 +125,10 @@
             }
             .tarieven-page .tarief-info {
                 margin-top: 28px;
+            }
+            .tarieven-page .traject-info {
+                margin-top: 28px;
+                padding-top: 24px;
             }
             .tarieven-page .tarief-cta .btn {
                 width: 100%;
@@ -174,6 +192,12 @@
                         <p>Weet je niet welke duur bij je past? Geen probleem. We kijken samen wat passend is.</p>
                         <a href="index.html#contact" class="btn btn-primary">Afspraak aanvragen</a>
                     </div>
+                    <section class="traject-info" aria-labelledby="traject-title">
+                        <h2 id="traject-title">Wanneer zijn meerdere sessies prettig?</h2>
+                        <p>Soms is één gesprek voldoende om weer helderheid te krijgen of een concrete vraag te onderzoeken. Bij thema’s die wat dieper liggen, kan het juist fijn zijn om meerdere momenten te hebben.</p>
+                        <p>In een traject is er ruimte om stap voor stap te kijken naar wat er speelt, nieuwe inzichten te laten landen en te onderzoeken wat er in de praktijk verandert. We stemmen de frequentie en het aantal sessies steeds af op wat jij nodig hebt. Er zit geen vast aantal gesprekken aan een traject.</p>
+                        <p class="traject-geruststelling">Je hoeft dus niet vooraf te weten hoeveel sessies je nodig hebt. Samen kijken we wat passend is.</p>
+                    </section>
                 </div>
             </div>
         </section>
